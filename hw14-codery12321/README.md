@@ -1,4 +1,4 @@
-# HW13: Huffman Encoding
+# HW14: Huffman Encoding
 In this assignment you will design a widely used file compression technique called Huffamn Encoding using binary trees and linked list, which is used in JPEG compression as well as in MP3 audio compression. The algorithm was invented by David A. Huffman in 1952 when he was a Ph.D. student at MIT
 
 # Learning Goals :
