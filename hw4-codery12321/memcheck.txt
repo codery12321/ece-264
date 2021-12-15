@@ -1,0 +1,74 @@
+==31250== Memcheck, a memory error detector
+==31250== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==31250== Using Valgrind-3.15.0-608cb11914-20190413 and LibVEX; rerun with -h for copyright info
+==31250== Command: ./hw4 inputs/input3 output3
+==31250== Parent PID: 31240
+==31250== 
+--31250-- 
+--31250-- Valgrind options:
+--31250--    --tool=memcheck
+--31250--    --log-file=memcheck.txt
+--31250--    --leak-check=full
+--31250--    --verbose
+--31250-- Contents of /proc/version:
+--31250--   Linux version 3.10.0-1160.25.1.el7.x86_64 (mockbuild@kbuilder.bsys.centos.org) (gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC) ) #1 SMP Wed Apr 28 21:49:45 UTC 2021
+--31250-- 
+--31250-- Arch and hwcaps: AMD64, LittleEndian, amd64-cx16-rdtscp-sse3-ssse3
+--31250-- Page sizes: currently 4096, max supported 4096
+--31250-- Valgrind library directory: /usr/libexec/valgrind
+--31250-- Reading syms from /home/shay/a/chen3633/Documents/hw4-codery12321/hw4
+--31250-- Reading syms from /usr/lib64/ld-2.17.so
+--31250--   Considering /usr/lib/debug/.build-id/62/c449974331341bb08dcce3859560a22af1e172.debug ..
+--31250--   .. build-id is valid
+--31250-- Reading syms from /usr/libexec/valgrind/memcheck-amd64-linux
+--31250--    object doesn't have a symbol table
+--31250--    object doesn't have a dynamic symbol table
+--31250-- Scheduler: using generic scheduler lock implementation.
+--31250-- Reading suppressions file: /usr/libexec/valgrind/default.supp
+==31250== embedded gdbserver: reading from /tmp/vgdb-pipe-from-vgdb-to-31250-by-chen3633-on-ecegrid-thin1.ecn.purdue.edu
+==31250== embedded gdbserver: writing to   /tmp/vgdb-pipe-to-vgdb-from-31250-by-chen3633-on-ecegrid-thin1.ecn.purdue.edu
+==31250== embedded gdbserver: shared mem   /tmp/vgdb-pipe-shared-mem-vgdb-31250-by-chen3633-on-ecegrid-thin1.ecn.purdue.edu
+==31250== 
+==31250== TO CONTROL THIS PROCESS USING vgdb (which you probably
+==31250== don't want to do, unless you know exactly what you're doing,
+==31250== or are doing some strange experiment):
+==31250==   /usr/libexec/valgrind/../../bin/vgdb --pid=31250 ...command...
+==31250== 
+==31250== TO DEBUG THIS PROCESS USING GDB: start GDB like this
+==31250==   /path/to/gdb ./hw4
+==31250== and then give GDB the following command
+==31250==   target remote | /usr/libexec/valgrind/../../bin/vgdb --pid=31250
+==31250== --pid is optional if only one valgrind process is running
+==31250== 
+--31250-- REDIR: 0x4019e40 (ld-linux-x86-64.so.2:strlen) redirected to 0x580c7ed5 (???)
+--31250-- REDIR: 0x4019c10 (ld-linux-x86-64.so.2:index) redirected to 0x580c7eef (???)
+--31250-- Reading syms from /usr/libexec/valgrind/vgpreload_core-amd64-linux.so
+--31250-- Reading syms from /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so
+==31250== WARNING: new redirection conflicts with existing -- ignoring it
+--31250--     old: 0x04019e40 (strlen              ) R-> (0000.0) 0x580c7ed5 ???
+--31250--     new: 0x04019e40 (strlen              ) R-> (2007.0) 0x04c2d1b0 strlen
+--31250-- REDIR: 0x4019dc0 (ld-linux-x86-64.so.2:strcmp) redirected to 0x4c2e300 (strcmp)
+--31250-- REDIR: 0x401aa80 (ld-linux-x86-64.so.2:mempcpy) redirected to 0x4c31f90 (mempcpy)
+--31250-- Reading syms from /usr/lib64/libc-2.17.so
+--31250--   Considering /usr/lib/debug/.build-id/a3/17b42b15368adcae21c11107691a03ec91059d.debug ..
+--31250--   .. build-id is valid
+--31250-- REDIR: 0x4ec71c0 (libc.so.6:strcasecmp) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--31250-- REDIR: 0x4ec3f40 (libc.so.6:strnlen) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--31250-- REDIR: 0x4ec9490 (libc.so.6:strncasecmp) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--31250-- REDIR: 0x4ec69a0 (libc.so.6:memset) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--31250-- REDIR: 0x4ec6950 (libc.so.6:memcpy@GLIBC_2.2.5) redirected to 0x4a247a0 (_vgnU_ifunc_wrapper)
+--31250-- REDIR: 0x4ec5930 (libc.so.6:__GI_strrchr) redirected to 0x4c2cb70 (__GI_strrchr)
+--31250-- REDIR: 0x4ebc740 (libc.so.6:malloc) redirected to 0x4c29eec (malloc)
+--31250-- REDIR: 0x4edc9b0 (libc.so.6:__GI_strstr) redirected to 0x4c32220 (__strstr_sse2)
+--31250-- REDIR: 0x4ebcb60 (libc.so.6:free) redirected to 0x4c2afe6 (free)
+--31250-- REDIR: 0x4ecd450 (libc.so.6:strchrnul) redirected to 0x4c31ab0 (strchrnul)
+--31250-- REDIR: 0x4ecbbd0 (libc.so.6:__GI_memcpy) redirected to 0x4c2efb0 (__GI_memcpy)
+--31250-- REDIR: 0x4ec6b70 (libc.so.6:__GI_mempcpy) redirected to 0x4c31cc0 (__GI_mempcpy)
+==31250== 
+==31250== HEAP SUMMARY:
+==31250==     in use at exit: 0 bytes in 0 blocks
+==31250==   total heap usage: 4 allocs, 4 frees, 2,504 bytes allocated
+==31250== 
+==31250== All heap blocks were freed -- no leaks are possible
+==31250== 
+==31250== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
