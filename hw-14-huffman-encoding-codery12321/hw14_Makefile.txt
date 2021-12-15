@@ -1,0 +1,83 @@
+CFLAGS = -std=c99 -g -Wall -Wshadow --pedantic -Wvla -Werror
+GCC = gcc $(CFLAGS)
+EXEC = hw14
+OBJS = hw14.o list.o tree.o huffman.o utility.o
+OUTFILESBASIC = outputBasicSorted outputBasicHuffman outputBasicHeader
+OUTFILESGOPHERS = outputGophersSorted outputGophersHuffman outputGophersHeader
+OUTFILESPARA = outputParaSorted outputParaHuffman outputParaHeader
+OUTFILESPNP = outputPnPSorted outputPnPHuffman outputPnPHeader
+OUTFILESWOODS = outputWoodsSorted outputWoodsHuffman outputWoodsHeader
+OUTFILES = $(OUTFILESBASIC) $(OUTFILESGOPHERS) $(OUTFILESPARA) $(OUTFILESPNP) $(OUTFILESWOODS)
+HDRS = huffman.h list.h tree.h path.h utility.h
+VALGRIND = valgrind --tool=memcheck --leak-check=yes --verbose
+
+$(EXEC): $(OBJS) $(HDRS)
+	$(GCC) $(OBJS) -o $(EXEC)
+
+# creates executable
+all: $(OBJS) $(HDRS)
+	$(GCC) $(OBJS) -o $(EXEC)
+
+# tests all outputs
+testall: testbasic testgophers testpara testpnp testwoods testallsorted testallhuffman testallheader
+
+# checks all output 1 files
+testallsorted: testbasic testgophers testpara testpnp testwoods
+	diff outputBasicSorted expected/basic_sorted
+	diff outputGophersSorted expected/gophers_sorted
+	diff outputParaSorted expected/para_sorted
+	diff outputPnPSorted expected/prideandprejudice_sorted
+	diff outputWoodsSorted expected/woods_sorted
+
+# checks all output 2 files
+testallhuffman: testbasic testgophers testpara testpnp testwoods
+	diff outputBasicHuffman expected/basic_huffman
+	diff outputGophersHuffman expected/gophers_huffman
+	diff outputParaHuffman expected/para_huffman
+	diff outputPnPHuffman expected/prideandprejudice_huffman
+	diff outputWoodsHuffman expected/woods_huffman
+
+# checks all output 3 files
+testallheader: testbasic testgophers testpara testpnp testwoods
+	diff outputBasicHeader expected/basic_header
+	diff outputGophersHeader expected/gophers_header
+	diff outputParaHeader expected/para_header
+	diff outputPnPHeader expected/prideandprejudice_header
+	diff outputWoodsHeader expected/woods_header
+
+# tests basic input
+testbasic: $(EXEC)
+	./$(EXEC) inputs/basic $(OUTFILESBASIC)	
+
+# tests gophers input
+testgophers: $(EXEC)
+	./$(EXEC) inputs/gophers $(OUTFILESGOPHERS)
+
+# tests para input
+testpara: $(EXEC)
+	./$(EXEC) inputs/para $(OUTFILESPARA)
+
+# tests pride and prejudice input
+testpnp: $(EXEC)
+	./$(EXEC) inputs/prideandprejudice $(OUTFILESPNP)
+
+# tests woods input
+testwoods: $(EXEC)
+	./$(EXEC) inputs/woods $(OUTFILESWOODS)
+
+# checks for memory leaks
+memory: $(EXEC)
+	$(VALGRIND) --log-file=log1 ./$(EXEC) inputs/basic $(OUTFILESBASIC)	
+	$(VALGRIND) --log-file=log2 ./$(EXEC) inputs/gophers $(OUTFILESGOPHERS)
+	$(VALGRIND) --log-file=log3 ./$(EXEC) inputs/para $(OUTFILESPARA)
+	$(VALGRIND) --log-file=log4 ./$(EXEC) inputs/prideandprejudice $(OUTFILESPNP)
+	$(VALGRIND) --log-file=log5 ./$(EXEC) inputs/woods $(OUTFILESWOODS)
+	
+%.o : %.c
+	$(GCC) -c $< 
+
+clean:
+	/bin/rm -f *.o
+	/bin/rm -f $(EXEC)
+	/bin/rm -f $(OUTFILES)
+	/bin/rm -f log?
