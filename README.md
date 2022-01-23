@@ -1,5 +1,4 @@
 ## ECE 264 Advanced C Programming
-Written by Yolanda Chen
 ### Course Description
 Continuation of a first programming course. Topics include files, structures, pointers, and the proper use of dynamic data structures.
 
