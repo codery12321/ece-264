@@ -16,7 +16,8 @@ Continuation of a first programming course. Topics include files, structures, po
 - **hw3**: Function Pointers
   - Create a type for functions that have the same types of arguments and return value, make a structure with an attribute as a function pointer, write a function that takes a pointer to this structure (modified from HW2), write a function that integrates multiple functions, read data from a file and write output to another file, detect errors and return proper code ('true', 'false', 'EXIT_SUCCESS', or EXIT_FAILURE), write Makefile to test <br />
 
-- **hw4**: QSort - Count the number of integers in a file, allocate memory (an array) to store the integers, read integers from the file and store them in the array, call qsort function to sort the integers, release memory, check memory error using valgrind, write the sorted array to another file <br />
+- **hw4**: QSort
+  - Count the number of integers in a file, allocate memory (an array) to store the integers, read integers from the file and store them in the array, call qsort function to sort the integers, release memory, check memory error using valgrind, write the sorted array to another file <br />
 
 - **hw5**: Sorting Student Records
   - Read unsorted data from files, write sorted data to another file, use the C built-in qsort function to sort the data <br />
