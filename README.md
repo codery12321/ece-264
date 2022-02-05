@@ -25,7 +25,8 @@ Continuation of a first programming course. Topics include files, structures, po
 - **hw6**: MergeSort
   - Recursion principles, "Divide-and-conquer" recursion, merge sort <br />
 
-- **hw7**: Card Shuffling using Riffle Shuffling part 1 - Use recursion to solve a problem, make copies of structures using memcpy, and understand the mathematics calculating the number of outputs <br />
+- **hw7**: Card Shuffling using Riffle Shuffling part 1
+  - Use recursion to solve a problem, make copies of structures using memcpy, and understand the mathematics calculating the number of outputs <br />
 
 - **hw8**: Card Shuffling using Riffle Shuffling part 2
   - Use recursion to solve a problem., understand how to modify a program (you wrote) for a slightly different problem <br />
